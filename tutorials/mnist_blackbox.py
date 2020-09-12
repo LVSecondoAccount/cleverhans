@@ -1,7 +1,7 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+
+
+
+
 
 import numpy as np
 from six.moves import xrange
@@ -153,7 +153,7 @@ def train_sub(sess, x, y, bbox_preds, X_sub, Y_sub):
     grads = jacobian_graph(preds_sub, x, FLAGS.nb_classes)
 
     # Train the substitute and augment dataset alternatively
-    for rho in xrange(FLAGS.data_aug):
+    for rho in range(FLAGS.data_aug):
         print("Substitute training epoch #" + str(rho))
         train_params = {
             'nb_epochs': FLAGS.nb_epochs_s,

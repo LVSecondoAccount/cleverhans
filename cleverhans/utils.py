@@ -1,7 +1,7 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+
+
+
+
 
 from distutils.version import LooseVersion
 import keras
@@ -79,7 +79,7 @@ def random_targets(gt, nb_classes):
 
     result = np.zeros(gt.shape)
 
-    for class_ind in xrange(nb_classes):
+    for class_ind in range(nb_classes):
         in_cl = gt == class_ind
         result[in_cl] = np.random.choice(other_classes(nb_classes, class_ind))
 
@@ -227,8 +227,8 @@ def grid_visual(data):
     num_rows = data.shape[1]
     num_channels = data.shape[4]
     current_row = 0
-    for y in xrange(num_rows):
-        for x in xrange(num_cols):
+    for y in range(num_rows):
+        for x in range(num_cols):
             figure.add_subplot(num_cols, num_rows, (x+1)+(y*num_rows))
             plt.axis('off')
 

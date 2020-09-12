@@ -1,7 +1,7 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+
+
+
+
 
 import math
 import numpy as np
@@ -301,7 +301,7 @@ def batch_eval(sess, tf_inputs, tf_outputs, numpy_inputs, args=None):
             for e in numpy_input_batches:
                 assert e.shape[0] == cur_batch_size
 
-            feed_dict = dict(zip(tf_inputs, numpy_input_batches))
+            feed_dict = dict(list(zip(tf_inputs, numpy_input_batches)))
             numpy_output_batches = sess.run(tf_outputs, feed_dict=feed_dict)
             for e in numpy_output_batches:
                 assert e.shape[0] == cur_batch_size, e.shape

@@ -2,7 +2,7 @@
 
 """
 
-from __future__ import print_function
+
 
 import inspect
 from nose.plugins.skip import SkipTest

@@ -4,11 +4,10 @@ from six.moves import xrange
 import warnings
 
 
-class Attack:
+class Attack(metaclass=ABCMeta):
     """
     Abstract base class for all attack classes.
     """
-    __metaclass__ = ABCMeta
 
     def __init__(self, model, back='tf', sess=None):
         """
@@ -251,7 +250,7 @@ class BasicIterativeMethod(Attack):
             if self.ord == np.inf:
                 eta = tf.clip_by_value(eta, -self.eps, self.eps)
             elif self.ord in [1, 2]:
-                reduc_ind = list(xrange(1, len(eta.get_shape())))
+                reduc_ind = list(range(1, len(eta.get_shape())))
                 if self.ord == 1:
                     norm = tf.reduce_sum(tf.abs(eta),
                                          reduction_indices=reduc_ind,

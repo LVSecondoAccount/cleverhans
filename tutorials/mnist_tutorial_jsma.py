@@ -1,7 +1,7 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+
+
+
+
 
 import keras
 import numpy as np
@@ -119,7 +119,7 @@ def main(argv=None):
     jsma = SaliencyMapMethod(model, back='tf', sess=sess)
 
     # Loop over the samples we want to perturb into adversarial examples
-    for sample_ind in xrange(0, FLAGS.source_samples):
+    for sample_ind in range(0, FLAGS.source_samples):
         print('--------------------------------------')
         print('Attacking input %i/%i' % (sample_ind + 1, FLAGS.source_samples))
 

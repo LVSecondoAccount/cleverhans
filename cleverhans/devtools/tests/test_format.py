@@ -2,7 +2,7 @@
 Unit tests for format checking
 """
 
-from __future__ import print_function
+
 
 from nose.plugins.skip import SkipTest
 

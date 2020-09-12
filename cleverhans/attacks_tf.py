@@ -1,7 +1,7 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+
+
+
+
 
 import copy
 import numpy as np
@@ -56,12 +56,12 @@ def fgm(x, preds, y=None, eps=0.3, ord=np.inf, clip_min=None, clip_max=None):
         # Take sign of gradient
         signed_grad = tf.sign(grad)
     elif ord == 1:
-        reduc_ind = list(xrange(1, len(x.get_shape())))
+        reduc_ind = list(range(1, len(x.get_shape())))
         signed_grad = grad / tf.reduce_sum(tf.abs(grad),
                                            reduction_indices=reduc_ind,
                                            keep_dims=True)
     elif ord == 2:
-        reduc_ind = list(xrange(1, len(x.get_shape())))
+        reduc_ind = list(range(1, len(x.get_shape())))
         signed_grad = grad / tf.sqrt(tf.reduce_sum(tf.square(grad),
                                                    reduction_indices=reduc_ind,
                                                    keep_dims=True))
@@ -197,7 +197,7 @@ def jacobian_graph(predictions, x, nb_classes):
     list_derivatives = []
 
     # Define the TF graph elements to compute our derivatives for each class
-    for class_ind in xrange(nb_classes):
+    for class_ind in range(nb_classes):
         derivatives, = tf.gradients(predictions[:, class_ind], x)
         list_derivatives.append(derivatives)
 
@@ -245,10 +245,10 @@ def jsma(sess, x, predictions, grads, sample, target, theta, gamma, clip_min,
     # by removing all features that are already at their maximum values (if
     # increasing input features---otherwise, at their minimum value).
     if increase:
-        search_domain = set([i for i in xrange(nb_features)
+        search_domain = set([i for i in range(nb_features)
                              if adv_x[0, i] < clip_max])
     else:
-        search_domain = set([i for i in xrange(nb_features)
+        search_domain = set([i for i in range(nb_features)
                              if adv_x[0, i] > clip_min])
 
     # Initialize the loop variables
